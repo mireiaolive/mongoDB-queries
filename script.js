@@ -8,8 +8,9 @@ db.restaurants.find( { borough: { $eq: "Bronx" } } ).skip(5);
 db.restaurants.find( { "grades.score":{$gt:90}  } );
 db.restaurants.find( { "grades.score":{$gt:80, $lt:100}  } );
 db.restaurants.find( { "address.coord":{$lt:-95.754168}  } );
-db.restaurants.find( {$and:[{"cuisine": {$ne:"American"}, "grades.score":{$gt:70}, "address.coord":{$lt:-65.754168}}]});
-db.restaurants.find({"cuisine": {$ne:"American"}, "grades.score":{$gt:70}, "address.coord":{$lt:-65.754168}})
+db.restaurants.find( {$and:[{"cuisine": {$ne:"American "}, "grades.score":{$gt:70}, "address.coord":{$lt:-65.754168}}]});
+db.restaurants.find({"cuisine": {$ne:"American "}, "grades.score":{$gt:70}, "address.coord":{$lt:-65.754168}})
+db.restaurants.find( {$and:[{"cuisine": {$ne:"American "}, "grades.grade":{$eq:"A"}, "borough":{$ne:"Brooklyn"}}]});
 
 
 
