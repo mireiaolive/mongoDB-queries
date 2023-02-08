@@ -19,6 +19,7 @@ db.restaurants.find({ borough: { $in: [ "Staten Island", "Queens", "Bronx", "Bro
 db.restaurants.find({ borough: { $ne: [ "Staten Island", "Queens", "Bronx", "Brooklyn" ] } },{ _id: 0, restaurant_id: 1, name:1, borough: 1 , cuisine:1});
 db.restaurants.find({ "grades.score": { $lt:10 } },{ _id: 0, restaurant_id: 1, name:1, borough: 1 , cuisine:1});
 db.restaurants.find({ cuisine:"Seafood", cuisine:{$ne:["American ", "Chinese"], }},{ _id: 0, restaurant_id: 1, name:1, borough: 1 , cuisine:1});
+db.restaurants.find({"grades.grade":"A", "grades.score":11,"grades.date":ISODate("2014-08-11T00:00:00.000Z") },{ _id: 0, restaurant_id: 1, name:1, grades:1 });
 
 //28. db.restaurants.find({ address: { $exists: "address.street" } });
 
