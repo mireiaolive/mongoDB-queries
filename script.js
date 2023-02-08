@@ -11,7 +11,14 @@ db.restaurants.find( { "address.coord":{$lt:-95.754168}  } );
 db.restaurants.find( {$and:[{"cuisine": {$ne:"American "}, "grades.score":{$gt:70}, "address.coord":{$lt:-65.754168}}]});
 db.restaurants.find( {"cuisine": {$ne:"American "}, "grades.score":{$gt:70}, "address.coord":{$lt:-65.754168}})
 db.restaurants.find( {$and:[{"cuisine": {$ne:"American "}, "grades.grade":{$eq:"A"}, "borough":{$ne:"Brooklyn"}}]}).sort({cuisine:-1});
-db.restaurants.find({},{ _id: 0, restaurant_id: 1, name:/^Wil/, borough: 1, cuisine: 1 });
+db.restaurants.find({name:/^Wil/},{ _id: 0, restaurant_id: 1, name:1, borough: 1, cuisine: 1 });
+db.restaurants.find({name:/ces$/},{ _id: 0, restaurant_id: 1, name:1, borough: 1, cuisine: 1 });
+db.restaurants.find({name:/Reg/},{ _id: 0, restaurant_id: 1, name:1, borough: 1, cuisine: 1 });
+db.restaurants.find({ cuisine: { $in: [ "American ", "Chinese" ] } },{ _id: 0, restaurant_id: 1, name: 1, borough: "Bronx" , cuisine:1});
+
+//28. db.restaurants.find({ address: { $exists: "address.street" } },{"address.street":1});
+
+
 
 
 
