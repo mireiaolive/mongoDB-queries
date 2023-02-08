@@ -17,8 +17,10 @@ db.restaurants.find({name:/Reg/},{ _id: 0, restaurant_id: 1, name:1, borough: 1,
 db.restaurants.find({ cuisine: { $in: [ "American ", "Chinese" ] } },{ _id: 0, restaurant_id: 1, name: 1, borough: "Bronx" , cuisine:1});
 db.restaurants.find({ borough: { $in: [ "Staten Island", "Queens", "Bronx", "Brooklyn" ] } },{ _id: 0, restaurant_id: 1, name:1, borough: 1 , cuisine:1});
 db.restaurants.find({ borough: { $ne: [ "Staten Island", "Queens", "Bronx", "Brooklyn" ] } },{ _id: 0, restaurant_id: 1, name:1, borough: 1 , cuisine:1});
+db.restaurants.find({ "grades.score": { $lt:10 } },{ _id: 0, restaurant_id: 1, name:1, borough: 1 , cuisine:1});
+db.restaurants.find({ cuisine:"Seafood", cuisine:{$ne:["American ", "Chinese"], }},{ _id: 0, restaurant_id: 1, name:1, borough: 1 , cuisine:1});
 
-//28. db.restaurants.find({ address: { $exists: "address.street" } },{"address.street":1});
+//28. db.restaurants.find({ address: { $exists: "address.street" } });
 
 
 
