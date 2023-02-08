@@ -22,8 +22,10 @@ db.restaurants.find({ cuisine:"Seafood", cuisine:{$ne:["American ", "Chinese"], 
 db.restaurants.find({"grades.grade":"A", "grades.score":11,"grades.date":ISODate("2014-08-11T00:00:00.000Z") },{ _id: 0, restaurant_id: 1, name:1, grades:1 });
 db.restaurants.find({"grades.1.grade":"A", "grades.1.score":9,"grades.1.date":ISODate("2014-08-11T00:00:00.000Z") },{ _id: 0, restaurant_id: 1, name:1, grades:1 });
 db.restaurants.find({"address.coord.1":{$gt:42, $lt:52} },{ _id: 0, restaurant_id: 1, name:1, "address.street":1, "address.building":1, "address.coord":1 });
-
-//28. db.restaurants.find({ address: { $exists: "address.street" } });
+db.restaurants.find({},{_id: 0, name:1}).sort({name:1});
+db.restaurants.find({},{_id: 0, name:1}).sort({name:-1});
+db.restaurants.find({},{_id: 0, cuisine:1}).sort({cuisine:1}, {borough:-1});
+db.restaurants.find({ address: { $exists: "address.street" } });
 
 
 
