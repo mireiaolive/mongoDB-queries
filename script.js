@@ -25,8 +25,12 @@ db.restaurants.find({"address.coord.1":{$gt:42, $lt:52} },{ _id: 0, restaurant_i
 db.restaurants.find({},{_id: 0, name:1}).sort({name:1});
 db.restaurants.find({},{_id: 0, name:1}).sort({name:-1});
 db.restaurants.find({},{_id: 0, cuisine:1}).sort({cuisine:1}, {borough:-1});
-db.restaurants.find({ "address.street": { $exists: true } });
-db.restaurants.find({ "address.coord": { $type: "double" } });
+db.restaurants.find({ "address.street": { $exists: true } }, {_id:0, "address.street":1});
+db.restaurants.find({ "address.coord": { $type: "double" } }, {_id:0, "address.coord":1});
+db.restaurants.find({ "grades.score": { $mod: [ 7, 0 ] } },{_id: 0, restaurant_id: 1, name:1, "grades.grade":1});
+db.restaurants.find({name:/mon/},{ _id: 0, name:1, borough: 1, cuisine: 1, "address.coord.1":1 });
+db.restaurants.find({name:/^Mad/},{ _id: 0, name:1, borough: 1, cuisine: 1, "address.coord.1":1 });
+
 
 
 
