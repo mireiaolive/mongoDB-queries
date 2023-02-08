@@ -11,6 +11,7 @@ db.restaurants.find( { "address.coord":{$lt:-95.754168}  } );
 db.restaurants.find( {$and:[{"cuisine": {$ne:"American "}, "grades.score":{$gt:70}, "address.coord":{$lt:-65.754168}}]});
 db.restaurants.find( {"cuisine": {$ne:"American "}, "grades.score":{$gt:70}, "address.coord":{$lt:-65.754168}})
 db.restaurants.find( {$and:[{"cuisine": {$ne:"American "}, "grades.grade":{$eq:"A"}, "borough":{$ne:"Brooklyn"}}]}).sort({cuisine:-1});
+db.restaurants.find({},{ _id: 0, restaurant_id: 1, name:/^Wil/, borough: 1, cuisine: 1 });
 
 
 
